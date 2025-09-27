@@ -1,15 +1,11 @@
-import {configureStore} from "@reduxjs/toolkit";
-import LibraryReducer from "./LibraryDataSlice.js"
+import { configureStore } from "@reduxjs/toolkit";
+import LibraryReducer from "./LibraryDataSlice.js";
 
-
-const appStore = configureStore((
-    {
-        reducer:{
-            Library:LibraryReducer,
-
-        },
-    }
-));
-
+// Configure the Redux store
+const appStore = configureStore({
+    reducer: {
+        Library: LibraryReducer, // Add Library slice reducer
+    },
+});
 
 export default appStore;

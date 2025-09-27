@@ -2,22 +2,25 @@ import { createSlice } from "@reduxjs/toolkit";
 import BookData from "./BookData.js";
 
 const LibrarySlice = createSlice({
-    name:"Library",
-    initialState:{
-        data:BookData,
+    name: "Library",
+    initialState: {
+        data: BookData, // Initial book data categorized
     },
-    reducers:{
+    reducers: {
+        // Add a new book to a specific category
         addItem: (state, action) => {
-      const { category, book } = action.payload; 
-      if (state.data[category]) {
-        state.data[category].unshift(book); 
-      } else {
-        console.warn(`Category "${category}" not found in library`);
-      }
-    },
+            const { category, book } = action.payload;
+
+            // If category exists, add book at the beginning
+            if (state.data[category]) {
+                state.data[category].unshift(book); 
+            } else {
+                // Warn if category does not exist
+                console.warn(`Category "${category}" not found in library`);
+            }
+        },
     }
 })
 
-
 export default LibrarySlice.reducer;
-export const {addItem} = LibrarySlice.actions;
+export const { addItem } = LibrarySlice.actions;
