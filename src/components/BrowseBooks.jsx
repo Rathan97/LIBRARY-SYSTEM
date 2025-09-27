@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom";
 import BookContainer from "./BookContainer.jsx";
 
 function BrowseBooks() {
+  // State for selected category
   const [selected, setSelected] = useState("--- Select Category ---");
+  // State for dropdown open/close
   const [open, setOpen] = useState(false);
+  // State for search input
   const [searchInput, setSearchInput] = useState("");
-  const [error, setError] = useState(""); // 🔹 For error message
+  // State for displaying error messages
+  const [error, setError] = useState(""); 
   const navigate = useNavigate();
 
+  // Category options
   const options = [
     { value: "", label: "--- Select Category ---" },
     { value: "fiction", label: "Fiction" },
@@ -16,22 +21,24 @@ function BrowseBooks() {
     { value: "non_fiction", label: "Non - Fiction" },
   ];
 
+  // Handle category selection
   const handleSelect = (opt) => {
     setSelected(opt.label);
     setOpen(false);
-    setSearchInput(""); // 🔹 Clear search when category changes
-    setError(""); // Clear error
-    console.log(opt.value);
-    navigate(`/BrowseBooks/books/${opt.value}`);
+    setSearchInput(""); // Clear search input when changing category
+    setError(""); // Clear any previous errors
+    navigate(`/BrowseBooks/books/${opt.value}`); // Navigate to selected category
   };
 
+  // Handle search button click or Enter key
   const handleSearch = () => {
     if (!searchInput.trim()) {
       setError("Please enter a title or author to search.");
       return;
     }
-    setError(""); // Clear error once valid search is made
+    setError(""); // Clear error once valid input
 
+    // Navigate based on whether a category is selected
     if (selected === "--- Select category ---") {
       navigate(`/BrowseBooks/books/?search=${searchInput}`);
     } else {
@@ -48,11 +55,12 @@ function BrowseBooks() {
 
   return (
     <div className="h-[70vh] mt-20">
+      {/* Page Title */}
       <h1 className="font-bold text-3xl text-gray-900 text-center underline">
         Browse Books
       </h1>
 
-      {/* 🔹 Search Bar */}
+      {/* Search Bar */}
       <div className="flex flex-row justify-center gap-5 border w-[500px] p-2 rounded-lg bg-white border-gray-300 m-auto mt-8 shadow-md">
         <input
           type="text"
@@ -60,14 +68,14 @@ function BrowseBooks() {
           className="border-none outline-none w-[420px]"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          onKeyDown={handleKeyDown} // 🔹 Search on Enter
+          onKeyDown={handleKeyDown} // Search on Enter key
         />
         <button onClick={handleSearch}>
           <i className="fa-solid fa-magnifying-glass cursor-pointer"></i>
         </button>
       </div>
 
-      {/* 🔹 Error Message */}
+      {/* Error Message */}
       {error && (
         <p className="text-red-500 text-center mt-2 text-sm">{error}</p>
       )}
@@ -79,7 +87,7 @@ function BrowseBooks() {
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
 
-      {/* Dropdown */}
+      {/* Dropdown for category selection */}
       <div className="relative w-[250px] mx-auto">
         <button
           onClick={() => setOpen(!open)}
@@ -89,6 +97,7 @@ function BrowseBooks() {
           <span className="ml-2">&#9662;</span>
         </button>
 
+        {/* Dropdown options */}
         {open && (
           <ul className="absolute w-full bg-white border border-gray-200 mt-1 rounded-lg shadow-lg z-10">
             {options.map((opt) => (
@@ -105,7 +114,7 @@ function BrowseBooks() {
       </div>
 
       {/* Book Results */}
-      <div className="items-container ">
+      <div className="items-container">
         <BookContainer />
       </div>
     </div>
