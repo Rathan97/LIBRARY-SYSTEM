@@ -1,5 +1,5 @@
 
-  const library_books = {
+  const BookData = {
     "fiction": [
       {
         "id": "F001",
@@ -1448,4 +1448,4 @@
     ]
   }
 
-  export default library_books;
+  export default BookData;

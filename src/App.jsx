@@ -1,20 +1,21 @@
-import HomePage from "./components/HomePage";
+
 import Header from "./components/Header.jsx";
-import BookDetails from "./components/BookDetails.jsx";
-import ErrorPage from "./components/404.jsx";
-import BrowseBooks from "./components/BrowseBooks.jsx";
-import AddBook from "./components/AddBook.jsx";
+import { Outlet } from "react-router-dom";
+import {Provider} from  "react-redux";
+import appStore from "./utils/appStore.js";
+
+
 
 
 function App() {
 
     return(
-        <>
+        <Provider store ={appStore}>
         <Header />
-        <HomePage />
+        <Outlet/>
        
 
-        </>
+        </Provider>
     )
 }
 
