@@ -1,16 +1,100 @@
-# React + Vite
+# 📚 Online Library System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎯 Objective
 
-Currently, two official plugins are available:
+The goal of this project is to **create an Online Library System**
+that allows users to browse, search, and add books dynamically. The
+system uses **React with Redux Toolkit** for state management, enabling
+persistent and scalable handling of library data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+------------------------------------------------------------------------
 
-## React Compiler
+## 🛠️ Technologies Used
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   **React (Vite)** → Frontend framework
+-   **Redux Toolkit** → State management
+-   **React Router DOM** → Routing and navigation
+-   **Tailwind CSS** → Styling and responsive design
+-   **FontAwesome Icons** → Icons for UI enhancement
 
-## Expanding the ESLint configuration
+------------------------------------------------------------------------
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+-   📖 **Browse Books** by categories (Fiction, Sci-Fi, Non-Fiction) 
+-   🔍 **Search by Title or Author** (across all categories or within
+    one) 
+-   ➕ **Add Books** via form (stored in Redux state) 
+-   🖼️ **Dynamic Book Details** page using URL params 
+-   🏠 **Home Page** with scroll animation and background image 
+-   ⚠️ **404 Page** for invalid routes
+
+------------------------------------------------------------------------
+
+## 📂 Project Structure
+
+    library-system/
+    ├── public/
+    │   └── vite.svg
+    │
+    ├── src/
+    │   ├── assets/
+    │   │   └── librarybg.jpg
+    │   │
+    │   ├── components/
+    │   │   ├── 404.jsx
+    │   │   ├── AddBook.jsx
+    │   │   ├── BookCard.jsx
+    │   │   ├── BookContainer.jsx
+    │   │   ├── BookDetails.jsx
+    │   │   ├── BrowseBooks.jsx
+    │   │   ├── Header.jsx
+    │   │   └── Homepage.jsx
+    │   │
+    │   ├── utils/
+    │   │   ├── appStore.js
+    │   │   ├── BookData.js
+    │   │   └── LibraryDataSlice.js
+    │   │
+    │   ├── App.jsx
+    │   ├── index.css
+    │   └── main.jsx
+    │
+    ├── .gitignore
+    ├── index.html
+    ├── package.json
+    ├── package-lock.json
+    ├── README.md
+    └── vite.config.js
+
+------------------------------------------------------------------------
+
+## ⚙️ Installation & Running the Project
+
+### 1️⃣ Clone the repository
+
+``` bash
+git clone https://github.com/Rathan97/library-system.git
+cd library-system
+```
+
+### 2️⃣ Install dependencies
+
+``` bash
+npm install
+```
+
+### 3️⃣ Run the development server
+
+``` bash
+npm run dev
+```
+
+👉 The app will run at `http://localhost:5173/`
+
+
+------------------------------------------------------------------------
+
+## Github Link
+
+- [Click Here ](https://github.com/Rathan97/library-system)
